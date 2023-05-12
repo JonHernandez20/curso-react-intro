@@ -1,7 +1,7 @@
-const Counter = () => {
+const Counter = ({ total, completed }) => {
     return (
         <h1>
-            Has acompletado 3 de 5 Todos
+            Has acompletado {total} de {completed} Todos
         </h1>
     );
 }

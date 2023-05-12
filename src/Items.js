@@ -1,10 +1,10 @@
 
-const Items = () => {
+const Items = ({ info }) => {
     return(
         <li>
-            <span>V</span>
-            <p>Llorando con la llorona</p>
-            <span>X</span>
+            <span>✅</span>
+            <p>{info}</p>
+            <span>❌</span>
         </li>
     );
 }

@@ -1,8 +1,8 @@
 
-const Todos = (items) => {
+const Todos = ({ children }) => {
     return (
         <ul>
-            {items.children}
+            { children }
         </ul>
     );
 }
