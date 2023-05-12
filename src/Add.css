@@ -1,0 +1,21 @@
+
+.create-btn {
+    height: 60px;
+    width: 60px;
+    position: fixed;
+    display: block;
+    bottom: 40px;
+    right: 40px;
+
+    border-radius: 50px;
+    border: none;
+    box-shadow: 0 1px 8px 1px #000;
+
+    background-color: #3e61de;
+    color: #fff;
+    cursor: pointer;
+
+    font-size: 28px;
+    text-align: center
+
+}
