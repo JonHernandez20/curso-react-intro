@@ -1,3 +1,5 @@
+import '../styles/Counter.css';
+
 const Counter = ({ total, completed }) => {
     return (
         <h1>

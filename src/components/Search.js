@@ -1,9 +1,7 @@
 import React from 'react'
+import '../styles/Search.css';
 
-const Search = () => {
-
-    const [ todoValue, setTodoValue ] = React.useState('');
-    console.log(todoValue);
+const Search = ({ todoValue, setTodoValue }) => {
 
     return(
         <input placeholder="Nuevo TODO" 

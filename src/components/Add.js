@@ -1,5 +1,5 @@
 
-import './Add.css'
+import '../styles/Add.css'
 
 const Add = () => {
     return(

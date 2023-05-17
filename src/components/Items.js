@@ -1,3 +1,4 @@
+import '../styles/Items.css';
 
 const Items = ({ info }) => {
     return(

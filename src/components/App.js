@@ -1,26 +1,33 @@
 // import logo from './platzi.webp';
+import React from 'react'
 import { Add } from './Add';
-import './App.css';
 import { Counter } from './Counter';
 import { Items } from './Items';
 import { Search } from './Search';
 import { Todos } from './Todos';
-import React from 'react'
+import '../styles/App.css'
 
 const TodosInfo = [
-  { text: "Cortar cebolla", finished: true},
-  { text: "Tender ropa", finished: true},
+  { text: "Tender ropa", finished: false},
   { text: "LLevar a los perros al parque", finished: false},
   { text: "Ir al mercado", finished: false},
-  { text: "Partido de futbol a las 7:00pm", finished: false},
-  { text: "Lavar el baño", finished: false},
+  { text: "Usar estados derivados", finished: true},
 ]
 
 function App() {
+
+    const [ todos, setTodos ] = React.useState(TodosInfo);
+    const [ todoValue, setTodoValue ] = React.useState('');  
+
+    console.log(todoValue);
+
+    const todosCompleted = TodosInfo.filter( check => check.finished ).length;
+    const todosAll = todos.length;
+
   return (
     <React.Fragment>
-      <Counter total={13} completed={16} />
-      <Search/>
+      <Counter total={ todosCompleted } completed={ todosAll } />
+      <Search  todoValue={ todoValue } setTodoValue={ setTodoValue } />
       <Todos>
         { TodosInfo.map((todoItem)=>(
           <Items key={todoItem.text} info={todoItem.text} finished={todoItem.finished} />
