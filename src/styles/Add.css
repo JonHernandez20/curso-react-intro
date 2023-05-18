@@ -9,13 +9,20 @@
 
     border-radius: 50px;
     border: none;
-    box-shadow: 0 1px 8px 1px #000;
+    box-shadow: 1px 1px 16px 4px #93C6E7;
 
-    background-color: #3e61de;
+    background-color: #93C6E7;
     color: #fff;
     cursor: pointer;
 
     font-size: 28px;
-    text-align: center
+    text-align: center;
+    transition: all .4s;
+}
+
+.create-btn:hover {
+    color: #000;
+    background-color: #B9F3FC;
+    box-shadow: 1px 1px 16px 4px #B9F3FC;
 
 }

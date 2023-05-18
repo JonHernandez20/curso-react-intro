@@ -4,7 +4,7 @@ import '../styles/Search.css';
 const Search = ({ todoValue, setTodoValue }) => {
 
     return(
-        <input placeholder="Nuevo TODO" 
+        <input placeholder="Cortar Cebolla" 
         value = { todoValue }
         onChange={ (event) => {
             setTodoValue(event.target.value);

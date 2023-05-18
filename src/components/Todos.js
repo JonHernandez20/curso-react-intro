@@ -1,3 +1,4 @@
+import '../styles/Todos.css'
 
 const Todos = ({ children }) => {
     return (

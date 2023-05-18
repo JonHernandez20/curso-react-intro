@@ -1,18 +1,27 @@
 li {
     width: 620px;
-
-    display: grid;
-    grid-template-columns: 50px 1fr 50px;
-    align-items: center;
+    height: auto;
+    position: relative;
     margin: 16px 0;
     padding: 8px;
-
-    border: 1px solid #000;
     border-radius: 50px;
     list-style: none;
     text-align: center;
+    background-color: #fff;
+    box-shadow: 1px 1px 8px #853aabb0;
 }
 
 li p {
     font-size: 17px;
+}
+
+li span {
+    cursor: pointer;
+}
+
+.container__todo {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    align-items: center;
 }
