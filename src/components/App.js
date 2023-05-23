@@ -16,21 +16,30 @@ const TodosInfo = [
 
 function App() {
 
+    // Input de busqueda.
     const [ todos, setTodos ] = React.useState(TodosInfo);
     const [ todoValue, setTodoValue ] = React.useState('');  
 
-    console.log(todoValue);
-
+    // Validacion de completado.
     const todosCompleted = TodosInfo.filter( check => check.finished ).length;
     const todosAll = todos.length;
+
+    // Mostrar todos que coincidan con lo que el usuario guardo.
+    const searchTodo = todos.filter( item => {
+      const todoText = item.text.toLowerCase();
+      const searchText = todoValue.toLowerCase();
+      return todoText.includes(searchText);
+    } );
+
+    console.log(todoValue);
 
   return (
     <React.Fragment>
       <Counter total={ todosCompleted } completed={ todosAll } />
       <Search  todoValue={ todoValue } setTodoValue={ setTodoValue } />
       <Todos>
-        { TodosInfo.map((todoItem)=>(
-          <Items key={todoItem.text} info={todoItem.text} finished={todoItem.finished} />
+        { searchTodo.map(( todoItem )=>(
+          <Items key={ todoItem.text } info={ todoItem.text } finished={ todoItem.finished } />
         )) }
       </Todos>
       <Add/>
