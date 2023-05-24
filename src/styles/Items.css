@@ -1,5 +1,5 @@
 li {
-    width: 620px;
+    width: 700px;
     height: auto;
     position: relative;
     margin: 16px 0;
@@ -9,6 +9,9 @@ li {
     text-align: center;
     background-color: #fff;
     box-shadow: 1px 1px 8px #853aabb0;
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    align-items: center;
 }
 
 li p {
@@ -19,9 +22,43 @@ li span {
     cursor: pointer;
 }
 
-.container__todo {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 50px 1fr 50px;
-    align-items: center;
+.todoChecked,
+.todoUnchecked {
+    font-size: 20px;
+    transition: all .2s;
+}
+
+.container__completed {
+    background-color: #37ff00;
+    animation:shake-left-right 0.8s linear both;
+}
+
+.p__completed {
+    font-weight: bold;
+}
+
+.todoUnchecked:hover {
+    color: #f32;
+}
+
+@keyframes shake-left-right{
+    0%,100%{
+        transform:rotate(0deg);
+        transform-origin:60% 60%;
+    }
+    10%{
+        transform:rotate(1deg)
+    }
+    20%,40%,60%{
+        transform:rotate(0deg)
+    }
+    30%,50%,70%{
+        transform:rotate(1deg)
+    }
+    80%{
+        transform:rotate(-1deg)
+    }
+    90%{
+        transform:rotate(1deg)
+    }
 }

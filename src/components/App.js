@@ -11,7 +11,9 @@ const TodosInfo = [
   { text: "Tender ropa", finished: false},
   { text: "LLevar a los perros al parque", finished: false},
   { text: "Ir al mercado", finished: false},
-  { text: "Usar estados derivados", finished: true},
+  { text: "Usar estados derivados", finished: false},
+  { text: "Entrenar Kick Boxing", finished: false },
+  { text: "Lavar al perro", finished: false },
 ]
 
 function App() {
@@ -21,17 +23,35 @@ function App() {
     const [ todoValue, setTodoValue ] = React.useState('');  
 
     // Validacion de completado.
-    const todosCompleted = TodosInfo.filter( check => check.finished ).length;
+    const todosCompleted = todos.filter( check => check.finished ).length;
     const todosAll = todos.length;
 
     // Mostrar todos que coincidan con lo que el usuario guardo.
     const searchTodo = todos.filter( item => {
       const todoText = item.text.toLowerCase();
       const searchText = todoValue.toLowerCase();
-      return todoText.includes(searchText);
-    } );
+        return todoText.includes(searchText);
+    });
 
-    console.log(todoValue);
+    // Hacer check de completar todo 
+    const completeTodo = (text) => {
+      const newListTodos = [...todos];
+      const todoIndex = newListTodos.findIndex((valueTodo) => {
+        return valueTodo.text === text;
+      });
+      newListTodos[todoIndex].finished = true;
+      setTodos(newListTodos);
+    }
+
+    // Hacer check de borrar todo
+    const deleteTodo = (text) => {
+      const newListTodos = [...todos];
+      const todoIndex = newListTodos.findIndex((valueTodo) => {
+        return valueTodo.text === text;
+      });
+      newListTodos.splice(todoIndex, 1);
+      setTodos(newListTodos);
+    }
 
   return (
     <React.Fragment>
@@ -39,7 +59,13 @@ function App() {
       <Search  todoValue={ todoValue } setTodoValue={ setTodoValue } />
       <Todos>
         { searchTodo.map(( todoItem )=>(
-          <Items key={ todoItem.text } info={ todoItem.text } finished={ todoItem.finished } />
+          <Items 
+            key={ todoItem.text }
+            text={ todoItem.text }
+            finished={ todoItem.finished }
+            onComplete={ () => completeTodo(todoItem.text) }
+            onDelete={ () => deleteTodo(todoItem.text) }
+          />
         )) }
       </Todos>
       <Add/>
