@@ -1,0 +1,33 @@
+
+.Icon-container {
+    cursor: pointer;
+    position: relative;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.Icon-svg {
+    width: 24px;
+    height: 24px;
+    transition: all .5s;
+}
+
+.Icon-type-delete:hover .Icon-svg{
+    fill: #ff9688;
+}
+
+.Icon-type-check:hover .Icon-svg{
+    fill: #37ff00;
+}
+
+.Icon-type-check {
+    height: 40px;
+    width: 40px;
+    border-radius: 50px;
+}
+
+.Icon-completed {
+    background-color: #368dc7;
+    fill: none;
+}

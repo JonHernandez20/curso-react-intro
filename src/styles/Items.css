@@ -8,7 +8,7 @@ li {
     list-style: none;
     text-align: center;
     background-color: #fff;
-    box-shadow: 1px 1px 8px #853aabb0;
+    box-shadow: 1px 1px 8px #0a0b0a;
     display: grid;
     grid-template-columns: 50px 1fr 50px;
     align-items: center;
@@ -18,27 +18,15 @@ li p {
     font-size: 17px;
 }
 
-.Icon {
-    cursor: pointer;
-}
-
-.Icon-type-check,
-.Icon-type-delete {
-    font-size: 20px;
-    transition: all .2s;
-}
-
 .container__completed {
-    background-color: #37ff00;
+    background-color: #77dd77 ;
+    box-shadow: 1px 1px 12px 1px #77dd49;
     animation:shake-left-right 0.8s linear both;
 }
 
 .p__completed {
     font-weight: bold;
-}
-
-.todoUnchecked:hover {
-    color: #f32;
+    color: #fff;
 }
 
 @keyframes shake-left-right{
