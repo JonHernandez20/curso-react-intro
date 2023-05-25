@@ -1,10 +1,10 @@
 // import logo from './platzi.webp';
 import React from 'react'
-import { Add } from './Add';
-import { Counter } from './Counter';
-import { Items } from './Items';
-import { Search } from './Search';
-import { Todos } from './Todos';
+import { Add } from '../components/Add';
+import { Counter } from '../components/Counter';
+import { Items } from '../components/Items';
+import { Search } from '../components/Search';
+import { Todos } from '../components/Todos';
 import '../styles/App.css'
 
 // const TodosInfo = [
