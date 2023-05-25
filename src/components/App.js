@@ -19,20 +19,35 @@ import '../styles/App.css'
 // localStorage.setItem('TODOS_V1', JSON.stringify(TodosInfo));
 // localStorage.removeItem('TODOS_V1');
 
+function useLocalStrorage (itemName, initialValue) {
+
+  // Valid LocalStrorage
+  const localStrorageItem = localStorage.getItem(itemName);
+  let parsedItem;
+  if (!localStrorageItem) {
+    localStorage.setItem(itemName, JSON.stringify(initialValue));
+    parsedItem = initialValue;
+  } else {
+    parsedItem = JSON.parse(localStrorageItem);
+  }
+
+  // Propio estado
+  const [ item, setItem ] = React.useState(parsedItem);
+
+  // Guardar todos
+  const saveItem = (newItem) => {
+    localStorage.setItem(itemName, JSON.stringify(newItem));
+    
+    setItem(newItem);
+  };
+
+  return [item, saveItem];
+}
+
 function App() {
 
-    // LocalStrorage valid
-    const localStorageTodos = localStorage.getItem('TODOS_V1');
-    let parsedTodos;
-    if (!localStorageTodos) {
-      localStorage.setItem('TODOS_V1', JSON.stringify([]));
-      parsedTodos = [];
-    } else {
-      parsedTodos = JSON.parse(localStorageTodos);
-    }
-
     // Input de busqueda.
-    const [ todos, setTodos ] = React.useState(parsedTodos);
+    const [ todos, setTodos ] = useLocalStrorage('TODOS_V1', []);
     const [ todoValue, setTodoValue ] = React.useState('');  
 
     // Validacion de completado.
@@ -46,13 +61,6 @@ function App() {
         return todoText.includes(searchText);
     });
 
-    // Guardar todos
-    const saveTodos = (newTodos) => {
-      localStorage.setItem('TODOS_V1', JSON.stringify(newTodos));
-      
-      setTodos(newTodos);
-    };
-
     // Hacer check de completar todo 
     const completeTodo = (text) => {
       const newListTodos = [...todos];
@@ -60,7 +68,7 @@ function App() {
         return valueTodo.text === text;
       });
       newListTodos[todoIndex].finished = true;
-      saveTodos(newListTodos);
+      setTodos(newListTodos);
     }
 
     // Hacer check de borrar todo
