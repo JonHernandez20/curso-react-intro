@@ -1,12 +1,8 @@
 // import logo from './platzi.webp';
 import React from 'react'
-import { Add } from '../components/Add';
-import { Counter } from '../components/Counter';
-import { Items } from '../components/Items';
-import { Search } from '../components/Search';
-import { Todos } from '../components/Todos';
 import '../styles/App.css'
 import { useLocalStrorage } from '../hooks/UseLocalStrorage';
+import { AppUI } from '../components/App';
 
 function App() {
 
@@ -45,24 +41,17 @@ function App() {
       setTodos(newListTodos);
     }
 
-  return (
-    <React.Fragment>
-      <Counter total={ todosCompleted } completed={ todosAll } />
-      <Search  todoValue={ todoValue } setTodoValue={ setTodoValue } />
-      <Todos>
-        { searchTodo.map(( todoItem )=>(
-          <Items 
-            key={ todoItem.text }
-            text={ todoItem.text }
-            finished={ todoItem.finished }
-            onComplete={ () => completeTodo(todoItem.text) }
-            onDelete={ () => deleteTodo(todoItem.text) }
-          />
-        )) }
-      </Todos>
-      <Add/>
-    </React.Fragment>
-  );
+    return(
+      <AppUI
+      todosCompleted = { todosCompleted }
+      todosAll = { todosAll }
+      setTodoValue = { setTodoValue }
+      todoValue = { todoValue }
+      searchTodo = { searchTodo }
+      completeTodo = { completeTodo }
+      deleteTodo = { deleteTodo }
+      />
+    );
 }
 
 export default App;
